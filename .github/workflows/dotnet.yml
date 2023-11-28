@@ -31,4 +31,4 @@ jobs:
       if: always()
       with:
         files: |
-          "*/src/XUnitExamples/TestResults/xtests.trx"
+          "/home/runner/work/CSD268Final/CSD268Final/src/XUnitExamples/TestResults/xtests.trx"
