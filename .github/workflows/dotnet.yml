@@ -20,12 +20,12 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore ./src/SoftwareTesting.sln
     - name: Build
-      run: dotnet build ./src/SoftwareTesting.sln --no-restore
+      run: dotnet build ./src/SoftwareTesting.sln
+    - name: Ensure browsers are installed
+      run: pwsh src/PlaywrightTests/bin/Debug/net6.0/playwright.ps1 install --with-deps
     - name: Test
-      run: dotnet test ./src/PlaywrightTests/PlaywrightTests.csproj --no-build --verbosity normal --logger "trx;LogFileName=xtests.trx"
+      run: dotnet test ./src/PlaywrightTests/PlaywrightTests.csproj --logger "trx;LogFileName=xtests.trx"
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action@v2
       if: always()
