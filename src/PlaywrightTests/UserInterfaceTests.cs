@@ -15,7 +15,7 @@ public class UserInterfaceTests
     {
         using IPlaywright playwright = await Playwright.CreateAsync();
         await using var browser =
-            await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions() { Headless = false, SlowMo = 50 });
+            await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions() { Headless = true, SlowMo = 50 });
 
         IBrowserContext context = await browser.NewContextAsync();
 
