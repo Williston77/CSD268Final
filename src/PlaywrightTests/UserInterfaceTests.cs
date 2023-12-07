@@ -23,8 +23,10 @@ public class UserInterfaceTests
         //Navigate to letsusedata.com
         await page.GotoAsync("https://letsusedata.com/");
         // enter in username and password
-        await page.FillAsync("xpath=//*[@id=\"txtUser\"]", "Test1");
-        await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "12345678");
+        // await page.FillAsync("xpath=//*[@id=\"txtUser\"]", "Test1");
+        await page.FillAsync("#txtUser", "Test1");
+        // await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "12345678");
+        await page.FillAsync("#txtPassword", "12345678");
         // press login
         // var response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]"));
         // await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
@@ -37,8 +39,10 @@ public class UserInterfaceTests
         // go back to page just in case something went wrong above
         await page.GotoAsync("https://letsusedata.com/");
         // enter in username and password
-        await page.FillAsync("xpath=//*[@id=\"txtUser\"]", "Test2");
-        await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "iF3sBF7c");
+        // await page.FillAsync("xpath=//*[@id=\"txtUser\"]", "Test2");
+        await page.FillAsync("#txtUser", "Test2");
+        // await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "iF3sBF7c");
+        await page.FillAsync("#txtPassword", "iF3sBF7c");
         // Press login
         // await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
         response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("#javascriptLogin"));
