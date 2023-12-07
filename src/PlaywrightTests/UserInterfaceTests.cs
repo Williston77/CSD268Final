@@ -27,7 +27,8 @@ public class UserInterfaceTests
         await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "12345678");
         // press login
         // var response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]"));
-        await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
+        // await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
+        var response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("#javascriptLogin"));
         // verify we have not changed page
         Assert.Equal("https://letsusedata.com/", page.Url);
         // verify it states invalid password on the screen
@@ -39,7 +40,8 @@ public class UserInterfaceTests
         await page.FillAsync("xpath=//*[@id=\"txtUser\"]", "Test2");
         await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "iF3sBF7c");
         // Press login
-        await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
+        // await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
+        var response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("#javascriptLogin"));
         //Verify Page URL
         Assert.Equal("https://letsusedata.com/CourseSelection.html", page.Url);
     }
