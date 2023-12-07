@@ -41,7 +41,7 @@ public class UserInterfaceTests
         await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "iF3sBF7c");
         // Press login
         // await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
-        var response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("#javascriptLogin"));
+        response = await page.RunAndWaitForNavigationAsync(async () => await page.ClickAsync("#javascriptLogin"));
         //Verify Page URL
         Assert.Equal("https://letsusedata.com/CourseSelection.html", page.Url);
     }
