@@ -26,9 +26,11 @@ public class UserInterfaceTests
         await page.FillAsync("xpath=//*[@id=\"txtUser\"]", "Test1");
         await page.FillAsync("xpath=//*[@id=\"txtPassword\"]", "12345678");
         // press login
-        await page.ClickAsync("id=javascriptLogin");
+        var response = await page.RunAndWaitForNavigationAsync(async () =>await page.ClickAsync("xpath=//*[@id=\"javascriptLogin\"]");
         // verify we have not changed page
         Assert.Equal("https://letsusedata.com/", page.Url);
+        // verify it states invalid password on the screen
+        page.GetByText("Invalid Password", new() { Exact = true });
         // time for round 2 which should succeed
         // go back to page just in case something went wrong above
         await page.GotoAsync("https://letsusedata.com/");
